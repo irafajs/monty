@@ -9,8 +9,10 @@
 void process_command(stack_t **stack, char *line, int line_num)
 {
 	char opcode[MAX_LINE_LENGTH];
-	int argument;
-	int num_tokens = sscanf(line, "%s %d", opcode, &argument);
+	char argument[MAX_LINE_LENGTH];
+	int is_int = 1;
+	int value, i;
+	int num_tokens = sscanf(line, "%s %s", opcode, argument);
 
 	if (num_tokens == 1 && strcmp(opcode, "pall") == 0)
 	{
@@ -18,7 +20,21 @@ void process_command(stack_t **stack, char *line, int line_num)
 	}
 	else if (num_tokens == 2 && strcmp(opcode, "push") == 0)
 	{
-		push(stack, argument, line_num);
+		for (i = 0; argument[i] != '\0'; i++)
+		{
+			if (!isdigit(argument[i]) && (i == 0 && argument[i] != '-'))
+			{
+				is_int = 0;
+				break;
+			}
+		}
+		if (!is_int)
+		{
+			fprintf(stderr, "L%d: usage: push integer\n", line_num);
+			exit(EXIT_FAILURE);
+		}
+		value = atoi(argument);
+		push(stack, value, line_num);
 	}
 	else
 	{
