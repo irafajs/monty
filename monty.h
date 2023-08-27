@@ -48,5 +48,6 @@ void pop(stack_t **stack, unsigned int line_number);
 void only_p(stack_t **stack, char *line, int line_num);
 void swap(stack_t **stack, unsigned int line_number);
 void add(stack_t **stack, unsigned int line_number);
+void nop(stack_t **stack, unsigned int count);
 
 #endif
