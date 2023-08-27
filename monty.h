@@ -43,5 +43,6 @@ void process_command(stack_t **stack, char *line, int line_number);
 extern stack_t *pp_stack;
 void pall(stack_t **stack, unsigned int line_number);
 void push(stack_t **stack, int value, unsigned int line_number);
+void pint(stack_t **stack, unsigned int line_number);
 
 #endif

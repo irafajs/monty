@@ -18,6 +18,10 @@ void process_command(stack_t **stack, char *line, int line_num)
 	{
 		pall(stack, line_num);
 	}
+	else if (num_tokens == 1 && strcmp(opcode, "pint") == 0)
+	{
+		pint(stack, line_num);
+	}
 	else if (num_tokens == 2 && strcmp(opcode, "push") == 0)
 	{
 		for (i = 0; argument[i] != '\0'; i++)
