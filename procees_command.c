@@ -40,6 +40,8 @@ void process_command(stack_t **stack, char *line, int line_num)
 	{
 		swap(stack, line_num);
 	}
+	else if (num_tokens == 1 && strcmp(opcode, "add") == 0)
+		add(stack, line_num);
 	else
 	{
 		fprintf(stderr, "L%d: unknown instruction %s\n", line_num, line);
