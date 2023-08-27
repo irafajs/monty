@@ -36,6 +36,10 @@ void process_command(stack_t **stack, char *line, int line_num)
 	{
 		only_p(stack, argument, line_num);
 	}
+	else if (num_tokens == 1 && strcmp(opcode, "swap") == 0)
+	{
+		swap(stack, line_num);
+	}
 	else
 	{
 		fprintf(stderr, "L%d: unknown instruction %s\n", line_num, line);

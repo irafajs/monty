@@ -46,5 +46,6 @@ void push(stack_t **stack, int value, unsigned int line_number);
 void pint(stack_t **stack, unsigned int line_number);
 void pop(stack_t **stack, unsigned int line_number);
 void only_p(stack_t **stack, char *line, int line_num);
+void swap(stack_t **stack, unsigned int line_number);
 
 #endif
