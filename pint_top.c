@@ -5,7 +5,7 @@
  * @stack: pointer to the stack
  * @line_number: line number of the command
  *
- * Return: void
+ * Return: nothing
  */
 void pint(stack_t **stack, unsigned int line_number)
 {

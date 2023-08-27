@@ -13,13 +13,9 @@ void process_command(stack_t **stack, char *line, int line_num)
 	int num_tokens = sscanf(line, "%s %s", opcode, argument);
 
 	if (num_tokens == 1 && strcmp(opcode, "pall") == 0)
-	{
 		pall(stack, line_num);
-	}
 	else if (num_tokens == 1 && strcmp(opcode, "pint") == 0)
-	{
 		pint(stack, line_num);
-	}
 	else if (num_tokens == 1 && strcmp(opcode, "pop") == 0)
 	{
 		if (stack == NULL || *stack == NULL)
@@ -33,15 +29,19 @@ void process_command(stack_t **stack, char *line, int line_num)
 		}
 	}
 	else if (num_tokens == 2 && strcmp(opcode, "push") == 0)
-	{
 		only_p(stack, argument, line_num);
-	}
 	else if (num_tokens == 1 && strcmp(opcode, "swap") == 0)
-	{
 		swap(stack, line_num);
-	}
 	else if (num_tokens == 1 && strcmp(opcode, "add") == 0)
 		add(stack, line_num);
+	else if (num_tokens == 1 && strcmp(opcode, "sub") == 0)
+		sub(stack, line_num);
+	else if (num_tokens == 1 && strcmp(opcode, "div") == 0)
+		divide(stack, line_num);
+	else if (num_tokens == 1 && strcmp(opcode, "mul") == 0)
+		multiply(stack, line_num);
+	else if (num_tokens == 1 && strcmp(opcode, "mod") == 0)
+		modulo(stack, line_num);
 	else
 	{
 		fprintf(stderr, "L%d: unknown instruction %s\n", line_num, line);

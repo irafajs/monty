@@ -36,5 +36,12 @@ int main(int argc, char *argv[])
 		line_num++;
 	}
 	fclose(file);
+	while (stack != NULL)
+	{
+		stack_t *temp = stack;
+
+		stack = stack->next;
+		free(temp);
+	}
 	return (EXIT_SUCCESS);
 }
