@@ -3,7 +3,7 @@
 /**
  * pchar - Print the char at the top of the stack
  * @stack: Pointer to the stack head
- * @conut: Line number of the instruction
+ * @count: Line number of the instruction
  *
  * Description: Treats the integer at the top of the stack as an ASCII value
  * and prints the corresponding character followed by a new line

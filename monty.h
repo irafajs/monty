@@ -53,5 +53,10 @@ void divide(stack_t **stack, unsigned int line_number);
 void multiply(stack_t **stack, unsigned int line_number);
 void modulo(stack_t **stack, unsigned int line_number);
 void nop(stack_t **stack, unsigned int count);
+void pchar(stack_t **stack, unsigned int count);
+void pstr(stack_t **head, unsigned int count);
+void rotl(stack_t **head,  __attribute__((unused)) unsigned int count);
+void rotr(stack_t **head, __attribute__((unused)) unsigned int count);
+void pop_only(stack_t **stack, char *line, int line_num);
 
 #endif

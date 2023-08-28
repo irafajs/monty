@@ -17,17 +17,7 @@ void process_command(stack_t **stack, char *line, int line_num)
 	else if (num_tokens == 1 && strcmp(opcode, "pint") == 0)
 		pint(stack, line_num);
 	else if (num_tokens == 1 && strcmp(opcode, "pop") == 0)
-	{
-		if (stack == NULL || *stack == NULL)
-		{
-			fprintf(stderr, "L%d: can't pop an empty stack\n", line_num);
-			exit(EXIT_FAILURE);
-		}
-		else
-		{
-		pop(stack, line_num);
-		}
-	}
+		pop_only(stack, argument, line_num);
 	else if (num_tokens == 2 && strcmp(opcode, "push") == 0)
 		only_p(stack, argument, line_num);
 	else if (num_tokens == 1 && strcmp(opcode, "swap") == 0)
@@ -42,6 +32,14 @@ void process_command(stack_t **stack, char *line, int line_num)
 		multiply(stack, line_num);
 	else if (num_tokens == 1 && strcmp(opcode, "mod") == 0)
 		modulo(stack, line_num);
+	else if (num_tokens == 1 && strcmp(opcode, "pchar") == 0)
+		pchar(stack, line_num);
+	else if (num_tokens == 1 && strcmp(opcode, "pstr") == 0)
+		pstr(stack, line_num);
+	else if (num_tokens == 1 && strcmp(opcode, "rotl") == 0)
+		rotl(stack, line_num);
+	else if (num_tokens == 1 && strcmp(opcode, "rotr") == 0)
+		rotr(stack, line_num);
 	else
 	{
 		fprintf(stderr, "L%d: unknown instruction %s\n", line_num, line);
@@ -78,4 +76,25 @@ void only_p(stack_t **stack, char *line, int line_num)
 	}
 	value = atoi(argument);
 	push(stack, value, line_num);
+}
+/**
+ * pop_only - handles the command for pop only that task
+ * @stack: passed argument as a pointer to node stack
+ * @line: passed argument as pointer to line
+ * @line_num: passed argument for line count of the file
+ *
+ * Return: nothing
+ */
+void pop_only(stack_t **stack, char *line, int line_num)
+{
+	(void) line;
+	if (stack == NULL || *stack == NULL)
+	{
+		fprintf(stderr, "L%d: can't pop an empty stack\n", line_num);
+		exit(EXIT_FAILURE);
+	}
+	else
+	{
+		pop(stack, line_num);
+	}
 }

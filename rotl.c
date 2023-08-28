@@ -2,18 +2,7 @@
 
 /**
  * rotl - Rotates the stack to the top
- * @stack: Pointer to the stack head
- * @count: Line number of the instruction
- *
- * Description: The top element of the stack becomes the last one,
- * and the second top element of the stack becomes the first one
- * Return: No return value
- */
-#include "monty.h"
-
-/**
- * rotl - Rotates the stack to the top
- * @stack: Pointer to the stack head
+ * @head: Pointer to the stack head
  * @count: Line number of the instruction
  *
  * Description: The top element of the stack becomes the last one,
